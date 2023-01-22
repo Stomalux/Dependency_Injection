@@ -27,33 +27,33 @@ class NewPostFragment : Fragment() {
         var Bundle.textArg: String? by StringArg
     }
 
-    private val viewModel: PostViewModel by viewModels(
-        ownerProducer = ::requireParentFragment)
+    private val viewModel: PostViewModel by viewModels()
+      //  ownerProducer = ::requireParentFragment)
 
     private var fragmentBinding: FragmentNewPostBinding? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_new_post, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.save -> {
-                fragmentBinding?.let {
-                    viewModel.changeContent(it.edit.text.toString())
-                    viewModel.save()
-                    AndroidUtils.hideKeyboard(requireView())
-                }
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setHasOptionsMenu(true)
+//    }
+//
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        inflater.inflate(R.menu.menu_new_post, menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return when (item.itemId) {
+//            R.id.save -> {
+//                fragmentBinding?.let {
+//                    viewModel.changeContent(it.edit.text.toString())
+//                    viewModel.save()
+//                    AndroidUtils.hideKeyboard(requireView())
+//                }
+//                true
+//            }
+//            else -> super.onOptionsItemSelected(item)
+//        }
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
